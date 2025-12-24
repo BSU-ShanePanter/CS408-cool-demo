@@ -1,0 +1,71 @@
+body {
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.game-container {
+  text-align: center;
+}
+
+canvas {
+  border: 2px solid #0f0;
+  background: #000;
+  display: block;
+  margin: 20px auto;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.score,
+.level,
+.lives {
+  flex: 1;
+}
+
+h1 {
+  color: #0f0;
+  text-shadow: 0 0 10px #0f0;
+  margin-bottom: 20px;
+}
+
+.controls {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(0, 255, 0, 0.1);
+  border-radius: 5px;
+}
+
+.btn-back {
+  margin-top: 20px;
+}
+
+#gameOver {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.95);
+  padding: 40px;
+  border-radius: 10px;
+  z-index: 100;
+  text-align: center;
+  border: 3px solid #0f0;
+}
+
+#gameOver h2 {
+  color: #0f0;
+  margin-bottom: 20px;
+}

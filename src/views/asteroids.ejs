@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Asteroids Game</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/stylesheets/asteroids.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>🎮 ASTEROIDS 🎮</h1>
+
+    <div class="game-info">
+      <div class="score">Score: <span id="score">0</span></div>
+      <div class="level">Level: <span id="level">1</span></div>
+      <div class="lives">Lives: <span id="lives">3</span></div>
+    </div>
+
+    <div style="position: relative; display: inline-block;">
+      <canvas id="gameCanvas" width="800" height="600"></canvas>
+      <div id="gameOver">
+        <h2>GAME OVER</h2>
+        <p id="finalScore"></p>
+        <button class="btn btn-success btn-lg" onclick="location.reload()">Play Again</button>
+        <a href="/" class="btn btn-secondary btn-lg ms-2">Back to Home</a>
+      </div>
+    </div>
+
+    <div class="controls">
+      <p><strong>Controls:</strong></p>
+      <p>
+        <strong>Arrow Keys:</strong> Rotate & Move |
+        <strong>Space:</strong> Shoot |
+        <strong>P:</strong> Pause
+      </p>
+    </div>
+
+    <a href="/" class="btn btn-secondary btn-back">Back to Home</a>
+  </div>
+
+  <script src="/javascripts/asteroids.js" defer></script>
+</body>
+</html>

@@ -105,3 +105,13 @@ dist
 
 # MacOS stupid stuff
 .DS_Store
+# Ingore pem files AWS uses for SSH
+*.pem
+
+data/
+
+# Playwright Test Results
+test-results/
+test-data
+playwright-report/
+.playwright/

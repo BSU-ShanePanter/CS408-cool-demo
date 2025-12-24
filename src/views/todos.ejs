@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todo App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="text-center mb-5">
+          <h1 class="display-4 text-white mb-2">Todo App</h1>
+          <p class="lead text-white-50">Manage your tasks efficiently</p>
+          <a href="/" class="btn btn-outline-light">Back to Landing</a>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="mb-0">My Tasks</h5>
+          </div>
+          <div class="card-body">
+            <% if (Array.isArray(todos) && todos.length > 0) { %>
+              <% todos.forEach(function (val) { %>
+                <div class="todo-item">
+                  <div class="flex-grow-1">
+                    <span class="task-text"><%= val.task %></span>
+                    <% if (val.completed > 0) { %>
+                      <span class="badge badge-completed ms-2">Completed</span>
+                    <% } else { %>
+                      <span class="badge badge-pending ms-2">Pending</span>
+                    <% } %>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <form method="POST" action="/todos/toggle" class="d-inline">
+                      <input type="hidden" name="id" value="<%= val.id %>" />
+                      <% if (val.completed > 0) { %>
+                        <button type="submit" class="btn btn-sm btn-warning">Mark Pending</button>
+                      <% } else { %>
+                        <button type="submit" class="btn btn-sm btn-success">Mark Complete</button>
+                      <% } %>
+                    </form>
+                    <form method="POST" action="/todos/delete" class="d-inline">
+                      <input type="hidden" name="id" value="<%= val.id %>" />
+                      <button type="submit" class="btn btn-sm btn-danger btn-delete">Delete</button>
+                    </form>
+                  </div>
+                </div>
+              <% }); %>
+            <% } else { %>
+              <div class="alert alert-info mb-0">
+                No tasks yet. Add one to get started!
+              </div>
+            <% } %>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">Add a New Task</h5>
+          </div>
+          <div class="card-body">
+            <form method="POST" action="/todos/create">
+              <div class="mb-3">
+                <label for="task" class="form-label">Task Description</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  name="task"
+                  id="task"
+                  placeholder="Enter a new task..."
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg w-100">
+                Create Task
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
