@@ -2,7 +2,6 @@
 # This will start the Node.js application using PM2 on an EC2 instance.
 # Ensure that you have already configured the application using config-node.sh
 # and that the application code is present on the instance.
-GITHUB_REPO="CS408-simple-EC2-example"
 
 # IF the application is already running, this will restart it.
 # Otherwise, it will start it fresh.
@@ -21,10 +20,11 @@ if pm2 list | grep -q "nodeapp"; then
     pm2 stop nodeapp
 fi
 
-# Change to the application directory and update code from git and reinstall dependencies
-cd $HOME/$GITHUB_REPO || { echo "Application directory not found!"; exit 1; }
+
 git pull origin main
-npm run clean-install
+pushd ..
+npm run ci
+popd
 
 # Now restart the app with PM2 or start it if not already running
 if pm2 list | grep -q "nodeapp"; then
