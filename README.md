@@ -54,6 +54,6 @@ This will start the application on `http://localhost:3000`.
 ## Production Setup
 
 To set up the production environment on an EC2 instance, follow the instructions
-in the [`docs/README.md`](docs/README.md) file. This file contains detailed steps
+in the [`README`](docs/README) in the docs directory. This file contains detailed steps
 for configuring the server, installing dependencies, and deploying the
 application.
