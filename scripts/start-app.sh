@@ -30,7 +30,7 @@ popd
 if pm2 list | grep -q "nodeapp"; then
     pm2 restart nodeapp
 else
-    pm2 start npm --name "nodeapp" -- start
+    pm2 start npm --name "nodeapp" -- start-prod
     pm2 save
 fi
 echo "Node.js application has been started with PM2."

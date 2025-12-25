@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./src/bin/www",
+    "start-prod": "node ./src/bin/www",
     "debug": "node --inspect ./src/bin/www",
     "clean": "rm -rf ./data ./src/data ./node_modules ./playwright-report ./test-results ./test-data",
     "test": "cross-env NODE_ENV=test playwright test",
